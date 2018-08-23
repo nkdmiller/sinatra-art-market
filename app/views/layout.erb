@@ -9,6 +9,8 @@
         <% @user = Helpers.current_user(session) %>
         <%=@user.name%>
       <%end%>
+      <br>
+      <a href="/users/logout">Logout</a>
       </span>
   </nav>
   </head>

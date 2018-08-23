@@ -1,0 +1,25 @@
+<%if @fail == true%>
+	<div class="alert alert-failure">
+	  <strong>Incorrect Username or Password. Please try again.</strong>
+	</div>
+<%end%>
+
+<form action="/login" method="POST">
+	<br><br>
+	 <fieldset>
+	    <legend>Enter User Name</legend>
+
+	    <input type="text" placeholder="Name" name="user[name]"
+	           maxlength="15" minlength= "3" required
+	           title="Must be between 3-15 characters." />
+
+	</fieldset>
+	<br></br> 
+    <fieldset>
+        <legend>Password</legend>
+
+        <input type="password" placeholder="Password" id="password" required name = "user[password]" minlength="6">
+		</script>
+    </fieldset>
+ 	<br></br>
+ </form>
