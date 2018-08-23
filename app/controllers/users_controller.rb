@@ -39,6 +39,30 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		erb :'users/show_user'
 	end
+	use Rack::MethodOverride
+	  patch '/figures/:id' do
+	    @user = User.find(params[:id])
+	    if !params[:user][:name].empty?
+			@user.update(name: params[:user][:name])
+	    end
+	    if !params[:user][:bio].empty?
+			@user.update(bio: params[:user][:bio])
+	    end
+
+	    if !params[:landmark][:name].empty?
+	      @landmark = Landmark.find_or_create_by(name: params[:landmark][:name], year_completed: params[:landmark][:year])
+	      @landmark.save
+	      @figure.landmarks << @landmark
+	    end
+	    if !!params[:figure][:landmark_ids]
+	      params[:figure][:landmark_ids].each do |id|
+	        @landmark = Landmark.find(id)
+	        @landmark.save
+	        @figure.landmarks << @landmark
+	      end
+	    end
+	    redirect to "/figures/#{@figure.id}"
+	  end
 	get '/users/:id/edit_profile' do
 		@user = User.find(params[:id])
 		erb :'users/edit_profile'
