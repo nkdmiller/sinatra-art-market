@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 	    end
 	end
 	get '/users/:id' do
-		"Display User Here"
+		@user = User.find(params[:id])
+		erb :'users/show_user'
 	end
 end

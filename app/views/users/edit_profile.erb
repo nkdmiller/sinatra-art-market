@@ -1,0 +1,30 @@
+<h1>Edit Profile</h1>
+<br></br>
+<h2>Please fill out the following information that you wish to change.</h2>
+<form action="/users/<%="#{@user.id}"%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch"> 
+	<br><br>
+	 <fieldset>
+	    <legend>Enter User Name</legend>
+
+	    <input type="text" placeholder="Name" name="user[name]"
+	           maxlength="15" minlength= "3" required
+	           title="Must be between 3-15 characters." />
+
+	</fieldset>
+  <br></br>
+ 
+	<fieldset>
+	    <legend>Enter Email</legend>
+
+	    <label for="primary">Primary address:</label>
+	    <input type="email" placeholder="myname@example.com"
+	           required name = "user[email]"
+	           title="Must be a valid email address" />
+
+	</fieldset>
+
+    <br></br>
+    
+  <input type="submit" value="Submit">
+</form>
