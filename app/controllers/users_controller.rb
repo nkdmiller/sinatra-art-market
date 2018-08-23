@@ -23,10 +23,10 @@ class UsersController < ApplicationController
 		erb :'users/show'
 	end
 	get '/users/login' do
-		erb :'users/login'
+		erb :'users/login', :layout => false
 	end
 	post '/users/login' do
-	    @user = User.find_by(username: params["username"], password: params["password"])
+	    @user = User.find_by(name: params[:user][:name], password: params[:user][:password])
 	    if @user
 	      session[:user_id] = @user.id
 	      redirect to '/users'

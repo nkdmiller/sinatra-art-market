@@ -8,9 +8,7 @@
 <% User.all.each do |user|%>
 	<div class="row">
 	  <div class="col-sm-4 col-centered">
-	  	<%if user.id == session[:user_id]%>
-			<%break%>
-		<%else%>
+	  	<%if user.id != session[:user_id]%>
 			<h1><%=user.name%></h1>
 		<%end%>
 	  </div>

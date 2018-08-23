@@ -3,14 +3,17 @@
 <html>
   <head>
   <nav class="navbar">
-    <span class="navbar-artmarket">Current User:
+    <span class="navbar-artmarket">
 
       <%if Helpers.is_logged_in?(session)%>
+        Current User:
         <% @user = Helpers.current_user(session) %>
-        <%=@user.name%>
+        <%=" #{@user.name}"%>
+        <br>
+        <a href="/users/logout">Logout</a>
+      <%else%>
+        <a href="/users/login">Login</a>
       <%end%>
-      <br>
-      <a href="/users/logout">Logout</a>
       </span>
   </nav>
   </head>
