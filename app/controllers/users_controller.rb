@@ -1,14 +1,21 @@
 class UsersController < ApplicationController
 	set :views, Proc.new { File.join(root, "../views/") }
-	get '/users' do
+	
+	get '/users/signup' do
 		erb :signup
 	end
-	post "/signup" do
-	  user = User.new(:name => params[:name], :password => params[:password])
+	get '/users' do
+		@create = fase
+		erb :success
+	end
+	post "/users" do
+		@create = true
+	  @user = User.new(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
+	  session[:user_id] = @user.id
 	  if user.save
-	    redirect "/login"
+	    erb :success
 	  else
-	    redirect "/failure"
+	    erb :error
 	  end
 	end
 	get '/users/login' do
