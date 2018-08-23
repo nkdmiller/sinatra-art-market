@@ -18,3 +18,16 @@ Confirm
 - [ ] Your commit messages are meaningful
 - [ ] You made the changes in a commit that relate to the commit message
 - [ ] You don't include changes in a commit that aren't related to the commit message
+
+
+
+			NOTES:
+				User has one creator, has one buyer
+				creator belongs to user, has many artworks
+				buyer belongs to user, has many artworks, through transactions
+				artworks belong to users, has many buyers through transactions
+
+				User name, email, password, bio
+				Creator, user_id
+				Buyer, user_id
+				Artwork, creator_id, photo, image_path, quantity, buyer_id, price, description
