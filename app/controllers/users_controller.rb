@@ -5,14 +5,16 @@ class UsersController < ApplicationController
 		erb :signup
 	end
 	get '/users' do
-		@create = fase
+		session.clear
+		@create = false
 		erb :success
 	end
 	post "/users" do
 		@create = true
 	  @user = User.new(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
 	  session[:user_id] = @user.id
-	  if user.save
+	  @session = session
+	  if @user.save
 	    erb :success
 	  else
 	    erb :error

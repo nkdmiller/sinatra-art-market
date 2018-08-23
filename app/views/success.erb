@@ -1,17 +1,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <%if @create == true%>
 	<div class="alert alert-success">
-	  <strong>Success!</strong> Indicates a successful or positive action.
-	</div>
-<%end%>
-<%if !!session[:user_id]%>
-	<div class="row">
-	  <div class="col-sm-4 col-centered">
-	  	
-	  </div>
+	  <strong>Success!</strong>
 	</div>
 <%end%>
 <h1>All Art Market Users</h1>
 <% User.all.each do |user|%>
-	<%=user.name%>
+	<div class="row">
+	  <div class="col-sm-4 col-centered">
+	  	<%if user.id == session[:user_id]%>
+			<%break%>
+		<%else%>
+			<h1><%=user.name%></h1>
+		<%end%>
+	  </div>
+	</div>
 <%end%>
