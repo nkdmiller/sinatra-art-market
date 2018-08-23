@@ -39,4 +39,12 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		erb :'users/show_user'
 	end
+	get '/users/:id/edit_profile' do
+		@user = User.find(params[:id])
+		erb :'users/edit_profile'
+	end
+	get '/users/:id/change_password' do
+		@user = User.find(params[:id])
+		erb :'users/change_password'
+	end
 end
