@@ -11,9 +11,8 @@ class UsersController < ApplicationController
 	end
 	post "/users" do
 		@create = true
-	  @user = User.new(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
+	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
 	  session[:user_id] = @user.id
-	  @session = session
 	  if @user.save
 	    erb :success
 	  else

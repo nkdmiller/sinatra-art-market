@@ -1,0 +1,16 @@
+
+<!doctype html>
+<html>
+  <head>
+  <nav class="navbar">
+    <span class="navbar-artmarket">Current User:
+
+      <%if Helpers.is_logged_in?(session)%>
+        <% @user = Helpers.current_user(session) %>
+        <%=@user.name%>
+      <%end%>
+      </span>
+  </nav>
+  </head>
+  <%= yield %>
+</html>
