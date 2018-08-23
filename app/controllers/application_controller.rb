@@ -11,4 +11,7 @@ class ApplicationController < Sinatra::Base
 		"Hello World"
 	end
 
+	get '/figures' do
+		"figureas"
+	end
 end
