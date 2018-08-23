@@ -11,8 +11,8 @@
 	 <br><br>
 	 <%if !!Helpers.is_logged_in?(session)%>
 		 <%if Helpers.current_user(session).id == @user.id%>
-		 	<a href="/users/#{@user.id}/edit_profile">Edit Profile</a>
-		 	<a href="/users/#{@user.id}/change_password">Change Password</a>
+		 	<a href=<%="/users/#{@user.id}/edit_profile"%>>Edit Profile</a>
+		 	<a href=<%="/users/#{@user.id}/change_password"%>>Change Password</a>
 		 <%end%>
 	<%end%>
 </div>
