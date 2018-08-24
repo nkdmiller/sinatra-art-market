@@ -10,7 +10,7 @@
 	 </div>	 
 	 <br><br>
 	 Artworks:
-	 <%if !!@creator.artworks.first%>
+	 <%if !!@creator%>
 		<%@creator.artworks.all.each do |art|%>
 			<%=art.name%>
 		<%end%>

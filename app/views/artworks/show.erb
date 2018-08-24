@@ -1,3 +1,8 @@
+<%if @create == true%>
+	<div class="alert alert-success">
+	  <strong>Success!</strong>
+	</div>
+<%end%>
 <h1>All Art Works in the Art Market</h1>
 <% Artwork.all.each do |art|%>
 	<div class="row">

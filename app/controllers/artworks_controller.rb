@@ -8,7 +8,9 @@ class ArtworksController < ApplicationController
 	end
 	post "/artworks" do
 		@create = true
-	  @artwork = Artwork.create(:name => params[:artwork][:name], :photo => params[:artwork][:name], :quantity => params[:artwork][:quantity], :price => params[:artwork][:price], :description => params[:artwork][:description], :creator_id => params[:artwork][:creator_id])
+	  @creator = Creator.find_or_create_by(:user_id => session[:user_id])
+	  @creator.save
+	  @artwork = Artwork.create(:name => params[:artwork][:name], :img => params[:artwork][:img], :quantity => params[:artwork][:quantity], :price => params[:artwork][:price], :description => params[:artwork][:description], :creator_id => @creator.id)
 	  @artwork.save
 	  redirect to '/artworks'
 	end
