@@ -36,14 +36,14 @@ class ArtworksController < ApplicationController
 			@artwork.update(img: params[:artwork][:img])
 	    end
 	    if !params[:artwork][:quantity].empty?
-			@artwork.update(img: params[:artwork][:quantity])
+			@artwork.update(quantity: params[:artwork][:quantity])
 	    end
 	    if !params[:artwork][:price].empty?
-			@artwork.update(img: params[:artwork][:price])
+			@artwork.update(price: params[:artwork][:price])
 	    end
 	    if !params[:artwork][:description].empty?
-			@artwork.update(img: params[:artwork][:description])
+			@artwork.update(description: params[:artwork][:description])
 	    end
-	    redirect to "/artworks/#{@user.id}"
+	    redirect to "/artworks/#{@artwork.id}"
 	  end
 end

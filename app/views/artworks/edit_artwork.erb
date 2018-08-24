@@ -2,12 +2,13 @@
 <br></br>
 <h2>Please fill out the following information</h2>
 <form action="/artworks/<%="#{@artwork.id}"%>" method="POST">
+	<input id="hidden" type="hidden" name="_method" value="patch"> 
 	<br><br>
 	 <fieldset>
 	    <legend>Enter Artwork Name</legend>
 
 	    <input type="text" placeholder="Name" name="artwork[name]"
-	           maxlength="30" required
+	           maxlength="30"
 	           title="Must be no longer than 30 characters." />
 
 	</fieldset>
@@ -27,7 +28,7 @@
 
 	    <label for="primary">Quantity:</label>
 	    <input type="text" placeholder="Number for sale"
-	           required name = "artwork[quantity]"
+	            name = "artwork[quantity]"
 	           title="Enter quantity of this artwork for sale." />
 
 	</fieldset>
@@ -39,7 +40,7 @@
 
 	    <label for="primary">Price:</label>
 	    <input type="text" placeholder=".50, 10.00, 1,000.00"
-	           required name = "artwork[price]"
+	           name = "artwork[price]"
 	           title="Enter price of this artwork." />
 
 	</fieldset>
