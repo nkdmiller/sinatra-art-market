@@ -1,0 +1,42 @@
+<h1>Create Artwork</h1>
+<br></br>
+<%@creator = Creator.find_or_create_by(id: %>
+creator_id, photo, image_path, quantity, buyer_id, price, description
+
+<h2>Please fill out the following information</h2>
+<form action="/users" method="POST">
+	<br><br>
+	 <fieldset>
+	    <legend>Enter Artwork Name</legend>
+
+	    <input type="text" placeholder="Name" name="artwork[name]"
+	           maxlength="30" required
+	           title="Must be no longer than 30 characters." />
+
+	</fieldset>
+  <br></br> 
+	 <fieldset>
+	    <legend>Enter Photo Location</legend>
+
+	    <input type="text" placeholder="Name" name="artwork[name]"
+	           maxlength="30" required
+	           title="Must be no longer than 30 characters." />
+
+	</fieldset>
+ 
+  <br></br>
+ 
+	<fieldset>
+	    <legend>Enter Email</legend>
+
+	    <label for="primary">Primary address:</label>
+	    <input type="email" placeholder="myname@example.com"
+	           required name = "user[email]"
+	           title="Must be a valid email address" />
+
+	</fieldset>
+
+    <br></br>
+    
+  <input type="submit" value="Submit">
+</form>
