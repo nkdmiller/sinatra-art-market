@@ -14,11 +14,16 @@ class ArtworksController < ApplicationController
 	  @artwork.save
 	  redirect to '/artworks'
 	end
+	get '/artworks/:id' do
+		@artwork = Artwork.find(params[:id])
+		erb:'artworks/show_artwork'
+	end
 	get '/transactions/:id/buy' do
 		erb:'artworks/buy', :layout => false
 	end
 
 	get '/artworks/:id/edit' do
+		@artwork = Artwork.find(params[:id])
 		erb:'artworks/edit', :layout => false
 	end	
 

@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-sm-4">
+	  	<h2><%="Name: #{@artwork.name}"%></h2>
+	  	<br>
+	  	<p><%="$#{@artwork.price}"%></p>
+	 </div>
+	 <br><br>
+	<div class="col-sm-2">
+		<label>Artist's Description</label>
+	  	<%="#{@artwork.description}"%>
+	 </div>	 
+	 <br><br>
+	 <%if !!Helpers.is_logged_in?(session)%>
+		 <%if Helpers.current_user(session).id == @artwork.creator.user_id%>
+		 	<a href=<%="/artworks/#{@artwork.id}/edit"%>>Edit Artwork Page</a>
+		 <%end%>
+	<%end%>
+	 <br><br>
+		<a href=<%="/users/#{@artwork.creator.user_id}"%>>See Artist Profile</a>
+</div>
