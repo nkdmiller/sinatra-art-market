@@ -1,0 +1,10 @@
+<h1>All Art Works in the Art Market</h1>
+<% Artwork.all.each do |art|%>
+	<div class="row">
+	  <div class="col-sm-4 col-centered">
+	  	<%if user.id != session[:user_id]%>
+			<h1><%=art.name%></h1>
+		<%end%>
+	  </div>
+	</div>
+<%end%>
