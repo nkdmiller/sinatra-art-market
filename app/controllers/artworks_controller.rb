@@ -24,7 +24,26 @@ class ArtworksController < ApplicationController
 
 	get '/artworks/:id/edit' do
 		@artwork = Artwork.find(params[:id])
-		erb:'artworks/edit', :layout => false
+		erb:'artworks/edit_artwork', :layout => false
 	end	
-
+	use Rack::MethodOverride
+	  patch '/artworks/:id' do
+	    @artwork = Artwork.find(params[:id])
+	    if !params[:artwork][:name].empty?
+			@artwork.update(name: params[:artwork][:name])
+	    end
+	    if !params[:artwork][:img].empty?
+			@artwork.update(img: params[:artwork][:img])
+	    end
+	    if !params[:artwork][:quantity].empty?
+			@artwork.update(img: params[:artwork][:quantity])
+	    end
+	    if !params[:artwork][:price].empty?
+			@artwork.update(img: params[:artwork][:price])
+	    end
+	    if !params[:artwork][:description].empty?
+			@artwork.update(img: params[:artwork][:description])
+	    end
+	    redirect to "/artworks/#{@user.id}"
+	  end
 end
