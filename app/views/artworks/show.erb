@@ -2,9 +2,7 @@
 <% Artwork.all.each do |art|%>
 	<div class="row">
 	  <div class="col-sm-4 col-centered">
-	  	<%if user.id != session[:user_id]%>
-			<h1><%=art.name%></h1>
-		<%end%>
+		<h1><%=art.name%></h1>
 	  </div>
 	</div>
 <%end%>

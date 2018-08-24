@@ -37,6 +37,8 @@ class UsersController < ApplicationController
 	end
 	get '/users/:id' do
 		@user = User.find(params[:id])
+		@creator = @user.creator
+		@buyer = @user.buyer
 		erb :'users/show_user'
 	end
 	use Rack::MethodOverride
