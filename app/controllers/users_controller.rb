@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 	      redirect to '/users'
 	    else
 	    	@fail = true
-	    	erb :error
+	    	erb :'/users/login', :layout => false
 	    end
 	end
 	get '/users/:id' do
@@ -44,16 +44,25 @@ class UsersController < ApplicationController
 	use Rack::MethodOverride
 	  patch '/users/:id' do
 	    @user = User.find(params[:id])
-	    if !params[:user][:name].empty?
-			@user.update(name: params[:user][:name])
-	    end
-	    if !params[:user][:bio].empty?
-			@user.update(bio: params[:user][:bio])
-	    end
-
-	    if !params[:user][:password].empty?
+	    if !!params[:user][:name]
+		    if !params[:user][:name].empty?
+				@user.update(name: params[:user][:name])
+		    end
+		end
+		if !!params[:user][:email]
+		    if !params[:user][:email].empty?
+				@user.update(email: params[:user][:email])
+		    end
+		end
+		if !!params[:user][:bio]
+		    if !params[:user][:bio].empty?
+				@user.update(bio: params[:user][:bio])
+		    end
+		end
+		if !!params[:user][:password]
 			@user.update(password: params[:user][:password])
-	    end
+		end
+	    @success = true
 	    redirect to "/users/#{@user.id}"
 	  end
 	get '/users/:id/edit_profile' do
