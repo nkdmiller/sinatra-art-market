@@ -13,6 +13,12 @@
 	 <%if !!Helpers.is_logged_in?(session)%>
 		 <%if Helpers.current_user(session).id == @artwork.creator.user_id%>
 		 	<a href=<%="/artworks/#{@artwork.id}/edit"%>>Edit Artwork Page</a>
+		 	<div>
+		 	<form method="post" action="/artworks/<%= @artwork.id %>/delete">
+			  <input id="hidden" type="hidden" name="_method" value="delete">
+			  <input type="submit" value="Delete">
+			</form>
+			</div>
 		 <%end%>
 	<%end%>
 	 <br><br>

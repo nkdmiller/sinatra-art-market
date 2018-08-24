@@ -1,6 +1,11 @@
 <%if @create == true%>
 	<div class="alert alert-success">
-	  <strong>Success!</strong>
+	  <strong>Artwork posted!</strong>
+	</div>
+<%end%>
+<%if @deleted == true%>
+	<div class="alert alert-success">
+	  <strong>Artwork deleted</strong>
 	</div>
 <%end%>
 <h1>All Art Works in the Art Market</h1>

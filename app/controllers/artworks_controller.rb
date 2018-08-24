@@ -46,4 +46,10 @@ class ArtworksController < ApplicationController
 	    end
 	    redirect to "/artworks/#{@artwork.id}"
 	  end
+	delete '/artworks/:id/delete' do
+	    @artwork = Artwork.find(params[:id])
+	    @artwork.delete
+	    @deleted = true
+	    erb:"artworks/show"
+ 	end
 end
