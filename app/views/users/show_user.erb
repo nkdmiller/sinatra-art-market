@@ -19,10 +19,20 @@
 	  	<%="Biography: #{@user.bio}"%>
 	 </div>	 
 	 <br><br>
-	 Artworks:
+	 <h1><%="Artworks by #{@user.name}"%></h1>
 	 <%if !!@creator%>
-		<%@creator.artworks.all.each do |art|%>
-			<%=art.name%>
+	 	<div class="row">
+	 	<% @user.creator.artworks.all.each do |art|%>
+	 		<div class="col-sm-3 art-display">
+			<a href="/artworks/<%= "#{art.id}" %>"><h1><%=art.name%></h1></a>
+			<figure>
+				<img src="<%= "/images/#{art.img}" %>" alt="<%= art.name%>" width="300" height="300">
+				<figcaption><%= "Posted by: #{art.creator.user.name}" %></figcaption>
+			</figure>
+			<h3><%= "Price: $#{art.price}" %></h3>
+			<h3><%= "Number for sale: #{art.quantity}" %></h3>
+			</div>
+		</div>
 		<%end%>
 	<%end%>
 	 <br><br>
@@ -37,7 +47,7 @@
 			<div class="row">
 				<h2>Purchases</h2>
 				 <%@user.buyer.transactions.all.each do |sale|%>
-				 	<div class="col-sm-4">
+				 	<div class="col-sm-3 transaction-display">
 				 	<%@artwork = Artwork.find(sale.artwork_id)%>
 				 	<h1><%=@artwork.name%></h1>
 				 	<figure>
@@ -52,7 +62,32 @@
 					</div>
 				<%end%>	
 			</div>
-		<%end%>		
+		<%end%>
+		<%mysales = []%>
+		<%Transaction.all.each do |sale|%>
+			<%if sale.artwork.creator.user.id == Helpers.current_user(session).id%>
+				<%mysales << sale%>
+			<%end%>
+		<%end%>
+		<%if !mysales.empty?%>
+			<div class="row">
+				<h2>Sales</h2>
+				 <%mysales.each do |sale|%>
+				 	<div class="col-sm-3 transaction-display">
+				 	<%@artwork = Artwork.find(sale.artwork_id)%>
+				 	<h1><%=@artwork.name%></h1>
+				 	<figure>
+						<img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>" width="300" height="300">
+					</figure>
+					<br><br>
+					<h2>Bought by <a href="/users/<%="#{sale.buyer.user.id}"%>"><%=sale.buyer.user.name%></a></h2>
+					<br><br>
+					<h3>Quantity: <%=sale.quantity_sold%></h3>
+					<%total = @artwork.price.to_f * sale.quantity_sold.to_f%>
+					<h3>Total Price: $<%=total%></h3>
+					</div>
+				<%end%>							
+		<%end%>
 	<%end%>
 
 </div>
