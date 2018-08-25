@@ -33,7 +33,9 @@
 		</div>	 
 	 </div>
 	 <%if !!@creator%>
-	 	<h1><%="Artworks by #{@user.name}"%></h1>
+	 	<%if !!@creator.artworks%>
+	 		<h1><%="Artworks by #{@user.name}"%></h1>
+	 	<%end%>
 	 	<div class="row">
 	 	<% @user.creator.artworks.all.each do |art|%>
 	 		<div class="col-sm-3 art-display">
@@ -50,13 +52,16 @@
 	<%end%>
 	 <br><br>
 		 <%if !!@buyer%>
+		 	<%if !!@buyer.transactions%>
+		 		<h2>Purchases</h2>
+		 	<%end%>
 			<div class="row">
-				<h2>Purchases</h2>
 				 <%@user.buyer.transactions.all.each do |sale|%>
 				 	<div class="col-sm-3 transaction-display">
 				 	<%@artwork = Artwork.find(sale.artwork_id)%>
 				 	<h1><%=@artwork.name%></h1>
 				 	<figure>
+				 		<figcaption><%= "Note from Buyer: #{sale.note}"%></figcaption>
 						<img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>" width="300" height="300">
 					</figure>
 					<br><br>
@@ -90,6 +95,7 @@
 				 	<%@artwork = Artwork.find(sale.artwork_id)%>
 				 	<h1><%=@artwork.name%></h1>
 				 	<figure>
+				 		<figcaption><%= "Note from Buyer: #{sale.note}"%></figcaption>
 						<img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>" width="300" height="300">
 					</figure>
 					<br><br>

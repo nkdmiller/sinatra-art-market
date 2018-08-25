@@ -41,6 +41,7 @@ class TransactionsController < ApplicationController
 		@transaction = Transaction.find(params[:id])
 	    @artwork = Artwork.find(@transaction.artwork.id)
 	    @artwork.quantity = @artwork.quantity.to_i + @transaction.quantity_sold.to_i
+	    @artwork.save
 	    @transaction.delete
 	    redirect to "/users/#{@transaction.buyer.user.id}/transaction-redirect"
  	end
