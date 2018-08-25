@@ -19,7 +19,15 @@
 	  	<%="Biography: #{@user.bio}"%>
 	 </div>	 
 	 <br><br>
+	 <%if !!Helpers.is_logged_in?(session)%>
+	 	<div class="col-sm-4">
+		 <%if Helpers.current_user(session).id == @user.id%>
+		 	<a href=<%="/users/#{@user.id}/edit_profile"%>>Edit Profile</a>
+		 	<a href=<%="/users/#{@user.id}/change_password"%>>Change Password</a>
+		 <%end%>
+		</div>	 
 	 <h1><%="Artworks by #{@user.name}"%></h1>
+	 </div>
 	 <%if !!@creator%>
 	 	<div class="row">
 	 	<% @user.creator.artworks.all.each do |art|%>
@@ -36,13 +44,6 @@
 		<%end%>
 	<%end%>
 	 <br><br>
-	 <%if !!Helpers.is_logged_in?(session)%>
-	 	<div class="col-sm-4">
-		 <%if Helpers.current_user(session).id == @user.id%>
-		 	<a href=<%="/users/#{@user.id}/edit_profile"%>>Edit Profile</a>
-		 	<a href=<%="/users/#{@user.id}/change_password"%>>Change Password</a>
-		 <%end%>
-		</div>
 		 <%if !!@buyer%>
 			<div class="row">
 				<h2>Purchases</h2>
