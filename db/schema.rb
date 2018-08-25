@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2018_08_23_030540) do
   create_table "transactions", force: :cascade do |t|
     t.integer "buyer_id"
     t.integer "artwork_id"
+    t.integer "quantity_sold"
+    t.string "note"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,6 +1,11 @@
+<%if @success == true%>
+	<div class="alert alert-success">
+	  <strong>Transaction complete! See receipt below.</strong>
+	</div>
+<%end%>
 <%if @create == true%>
 	<div class="alert alert-success">
-	  <strong>Success!</strong>
+	  <strong>Welcome to Sinatra Art Market!</strong>
 	</div>
 <%end%>
 <div class="row">
@@ -22,10 +27,32 @@
 	<%end%>
 	 <br><br>
 	 <%if !!Helpers.is_logged_in?(session)%>
+	 	<div class="col-sm-4">
 		 <%if Helpers.current_user(session).id == @user.id%>
 		 	<a href=<%="/users/#{@user.id}/edit_profile"%>>Edit Profile</a>
 		 	<a href=<%="/users/#{@user.id}/change_password"%>>Change Password</a>
 		 <%end%>
+		</div>
+		 <%if !!@buyer%>
+			<div class="row">
+				<h2>Purchases</h2>
+				 <%@user.buyer.transactions.all.each do |sale|%>
+				 	<div class="col-sm-4">
+				 	<%@artwork = Artwork.find(sale.artwork_id)%>
+				 	<h1><%=@artwork.name%></h1>
+				 	<figure>
+						<img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>" width="300" height="300">
+					</figure>
+					<br><br>
+					<h2>Purchased from <a href="/users/<%="#{@artwork.creator.user.id}"%>"><%=@artwork.creator.user.name%></a></h2>
+					<br><br>
+					<h3>Quantity: <%=sale.quantity_sold%></h3>
+					<%total = @artwork.price.to_f * sale.quantity_sold.to_f%>
+					<h3>Total Price: $<%=total%></h3>
+					</div>
+				<%end%>	
+			</div>
+		<%end%>		
 	<%end%>
 
 </div>

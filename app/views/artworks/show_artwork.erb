@@ -29,6 +29,8 @@
 			  <input type="submit" value="Delete">
 			</form>
 			</div>
+		<%else%>
+			<a href=<%="/transactions/#{Helpers.current_user(session).id}/#{@artwork.id}/new"%>>Purchase Artwork</a>
 		 <%end%>
 	<%end%>		
 	</div>

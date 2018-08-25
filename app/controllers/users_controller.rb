@@ -6,10 +6,12 @@ class UsersController < ApplicationController
 	end
 	get '/users' do
 		@create = false
+		@success = false
 		erb :'users/show'
 	end
 	post "/users" do
 		@create = true
+		@success = false
 	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
 	  session[:user_id] = @user.id
 	  if @user.save

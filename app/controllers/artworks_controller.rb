@@ -52,4 +52,8 @@ class ArtworksController < ApplicationController
 	    @deleted = true
 	    erb:"artworks/show"
  	end
+ 	get '/artworks/:id/buy' do
+ 		@artwork = Artwork.find(params[:id])
+ 		erb:'transactions/new'
+ 	end
 end

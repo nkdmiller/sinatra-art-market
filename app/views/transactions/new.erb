@@ -1,0 +1,32 @@
+<h1>Purchase Form</h1>
+<br></br>
+
+
+
+<h2>Please fill out the following information</h2>
+<form action="/transactions/<%=@user.id%>/<%= @artwork.id%>" method="POST">
+	<br><br>
+	 <fieldset>
+	    <legend>Select the number you wish to buy</legend>
+
+	    <select name="transaction[quantity_sold]">
+	    	<%i=1%>
+	    	<%@artwork.quantity.times do%>
+	    		<option value="<%=i%>"><%=i%></option>
+	    		<%i+=1%>
+	    	<%end%>
+
+	    </select>
+
+	</fieldset>
+  <br></br> 
+	 <fieldset>
+	    <legend>Note to Seller</legend>
+
+	    <input type="text" placeholder="../public/images/photo.jpeg" name="transaction[note]"
+	           title="Path to image." />
+
+	</fieldset>
+
+  <input type="submit" value="Submit">
+</form>
