@@ -75,4 +75,11 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		erb :'users/change_password'
 	end
+	get '/users/:id/transaction-redirect' do
+		@transaction_success = true
+		@user = User.find(params[:id])
+		@creator = @user.creator
+		@buyer = @user.buyer
+		erb :'users/show_user'
+	end
 end

@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
 		@success = true
 		@buyer = Buyer.find_or_create_by(:user_id => session[:user_id])
 		@buyer.save
-		@artwork.quantity = @artwork.quantity - params[:transaction][:quantity_sold]
+		@artwork.quantity = @artwork.quantity.to_i - params[:transaction][:quantity_sold].to_i
 		@artwork.save
 		@transaction = Transaction.create(:artwork_id => @artwork.id, :buyer_id => @buyer.id, :quantity_sold => params[:transaction][:quantity_sold], :note => params[:transaction][:note])
 		@transaction.save
@@ -27,9 +27,9 @@ class TransactionsController < ApplicationController
 		@transaction = Transaction.find(params[:id])
 		@artwork = Artwork.find(@transaction.artwork.id)
 		if !params[:transaction][:quantity_sold].empty?
-			@artwork.quantity = @artwork.quantity + @transaction.quantity_sold
+			@artwork.quantity = @artwork.quantity.to_i + @transaction.quantity_sold.to_i
 			@transaction.update(quantity_sold: params[:transaction][:quantity_sold])
-			@artwork.quantity = @artwork.quantity - params[:transaction][:quantity_sold]
+			@artwork.quantity = @artwork.quantity.to_i - params[:transaction][:quantity_sold].to_i
 			@artwork.save
 	    end
 		if !params[:transaction][:note].empty?
@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
 	delete '/transactions/:id/delete' do
 		@transaction = Transaction.find(params[:id])
 	    @artwork = Artwork.find(params[:id])
-	    @artwork.quantity = @artwork.quantity + @transaction.quantity_sold
+	    @artwork.quantity = @artwork.quantity.to_i + @transaction.quantity_sold.to_i
 	    @transaction.delete
 	    redirect to "/users/#{@transaction.buyer.user.id}/transaction-redirect"
  	end

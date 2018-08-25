@@ -8,6 +8,11 @@
 	  <strong>Welcome to Sinatra Art Market!</strong>
 	</div>
 <%end%>
+<%if @transaction_success == true%>
+	<div class="alert alert-success">
+	  <strong>Transaction has been modified. Check receipts below.</strong>
+	</div>
+<%end%>
 <div class="row">
 	<div class="col-sm-4">
 	  	<%="Name: #{@user.name}"%>
