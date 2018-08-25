@@ -12,7 +12,7 @@
 	<h1>All Art Works in the Art Market</h1>
 	<div class="row">
 	<% Artwork.all.each do |art|%>
-		  <div class="col-sm-3 col-centered">
+		  <div class="col-sm-3 art-display">
 			<a href="/artworks/<%= "#{art.id}" %>"><h1><%=art.name%></h1></a>
 			<figure>
 				<img src="<%= "images/#{art.img}" %>" alt="<%= art.name%>" width="300" height="300">

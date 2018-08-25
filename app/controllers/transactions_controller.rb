@@ -15,4 +15,15 @@ class TransactionsController < ApplicationController
 		@transaction.save
 		erb :"users/show_user"
 	end
+	use Rack::MethodOverride
+	patch '/transactions/:id' do  
+		@transaction = Transaction.find(params[:id])  
+		if !params[:transaction][:quantity_sold].empty?
+			@transaction.update(quantity_sold: params[:transaction][:quantity_sold])
+	    end
+		if !params[:transaction][:note].empty?
+			@transaction.update(note: params[:transaction][:note])
+	    end
+	end
+	
 end
