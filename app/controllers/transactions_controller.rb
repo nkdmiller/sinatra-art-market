@@ -39,7 +39,7 @@ class TransactionsController < ApplicationController
 	end
 	delete '/transactions/:id/delete' do
 		@transaction = Transaction.find(params[:id])
-	    @artwork = Artwork.find(params[:id])
+	    @artwork = Artwork.find(@transaction.artwork.id)
 	    @artwork.quantity = @artwork.quantity.to_i + @transaction.quantity_sold.to_i
 	    @transaction.delete
 	    redirect to "/users/#{@transaction.buyer.user.id}/transaction-redirect"
