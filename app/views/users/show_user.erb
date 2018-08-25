@@ -26,9 +26,9 @@
 		 	<a href=<%="/users/#{@user.id}/change_password"%>>Change Password</a>
 		 <%end%>
 		</div>	 
-	 <h1><%="Artworks by #{@user.name}"%></h1>
 	 </div>
 	 <%if !!@creator%>
+	 	<h1><%="Artworks by #{@user.name}"%></h1>
 	 	<div class="row">
 	 	<% @user.creator.artworks.all.each do |art|%>
 	 		<div class="col-sm-3 art-display">
@@ -60,6 +60,8 @@
 					<h3>Quantity: <%=sale.quantity_sold%></h3>
 					<%total = @artwork.price.to_f * sale.quantity_sold.to_f%>
 					<h3>Total Price: $<%=total%></h3>
+					<br>
+					<a href="/transactions/<%= "#{sale.id}" %>/edit">Edit Purchase</a>
 					</div>
 				<%end%>	
 			</div>

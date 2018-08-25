@@ -1,7 +1,8 @@
-<h1>Purchase Form</h1>
+<h1>Edit Purchase Form</h1>
 <br></br>
 <h2>Please fill out the following information</h2>
-<form action="/transactions/<%=@user.id%>/<%= @artwork.id%>" method="POST">
+<form action="/transactions/<%=@transaction.id%>" method="POST">
+	<input id="hidden" type="hidden" name="_method" value="patch"> 
 	<br><br>
 	 <fieldset>
 	    <legend>Select the number you wish to buy</legend>
