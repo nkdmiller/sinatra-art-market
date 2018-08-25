@@ -14,15 +14,11 @@ class UsersController < ApplicationController
 		@success = false
 	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
 	  session[:user_id] = @user.id
-	  if @user.save
-	    erb :'users/show'
-	  else
-	    erb :'errors/signup'
-	  end
+	  redirect to '/artworks'
 	end
 	get '/users/logout' do
 		session.clear
-		erb :'users/show'
+		redirect to '/artworks'
 	end
 	get '/users/login' do
 		erb :'users/login', :layout => false
@@ -31,7 +27,7 @@ class UsersController < ApplicationController
 	    @user = User.find_by(name: params[:user][:name], password: params[:user][:password])
 	    if @user
 	      session[:user_id] = @user.id
-	      redirect to '/users'
+	      redirect to '/artworks'
 	    else
 	    	@fail = true
 	    	erb :'/users/login', :layout => false

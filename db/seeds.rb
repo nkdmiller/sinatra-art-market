@@ -7,7 +7,7 @@ users_list = {
     "Rachael" => {
       :email => "rachael@example.com",
       :password => "password",
-      :bio => "My name is Rachael, I'm trader of rare paintings painter."
+      :bio => "My name is Rachael, I'm a trader of rare paintings."
     },
     "Stefan" => {
       :email => "stefan@example.com",
@@ -58,7 +58,7 @@ artwork_list = {
       :description => "Prints of a modern masterpiece.",
       :quantity => 50
     },
-    "The Kiss 2.0" => {
+    "The Kiss" => {
       :creator_id => 1,
       :price => "59,000.00",
       :img => "the_kiss.jpg",

@@ -5,14 +5,8 @@ class ApplicationController < Sinatra::Base
 		set :views, 'app/views'
 		enable :sessions
 		set :session_secret, "artmarket"
-
 	end
-
 	get '/' do
-		"Hello World"
-	end
-
-	get '/p' do
-		"figureas"
+		redirect to '/artworks'
 	end
 end
