@@ -1,16 +1,25 @@
 <div class="row">
 	<div class="col-sm-4">
-	  	<h2><%="Name: #{@artwork.name}"%></h2>
+	  	<h1><%="Name: #{@artwork.name}"%></h1>
 	  	<br>
-	  	<p><%="$#{@artwork.price}"%></p>
+	  	<h2>Price: <%="$#{@artwork.price}"%></h2>
+	  	<br>
+	  	<br>
+	  	<h2>Number for sale: <%="#{@artwork.quantity}"%></h2>
+	  	<br>
+	  	<a href=<%="/users/#{@artwork.creator.user_id}"%>>See Artist Profile</a>
 	 </div>
-	 <img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>" width="300" height="300">
-	 <br><br>
-	<div class="col-sm-2">
-		<label>Artist's Description</label>
+	 <div class="col-sm-8">
+	 <figure>
+	 <img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>">
+	 <figcaption>
+		<label>Seller's Description</label>
 	  	<%="#{@artwork.description}"%>
+	  </figcaption>
+	</figure>
 	 </div>	 
 	 <br><br>
+	 <div class="col-sm-2 seller-options">
 	 <%if !!Helpers.is_logged_in?(session)%>
 		 <%if Helpers.current_user(session).id == @artwork.creator.user_id%>
 		 	<a href=<%="/artworks/#{@artwork.id}/edit"%>>Edit Artwork Page</a>
@@ -21,7 +30,6 @@
 			</form>
 			</div>
 		 <%end%>
-	<%end%>
-	 <br><br>
-		<a href=<%="/users/#{@artwork.creator.user_id}"%>>See Artist Profile</a>
+	<%end%>		
+	</div>
 </div>
