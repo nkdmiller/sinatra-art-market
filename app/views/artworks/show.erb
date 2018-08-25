@@ -8,17 +8,19 @@
 	  <strong>Artwork deleted</strong>
 	</div>
 <%end%>
-<h1>All Art Works in the Art Market</h1>
-<div class="row">
-<% Artwork.all.each do |art|%>
-	  <div class="col-sm-3 col-centered">
-		<h1><%=art.name%></h1>
-		<figure>
-			<img src="<%= "images/#{art.img}" %>" alt="<%= art.name%>" width="300" height="300">
-			<figcaption><%= "Posted by: #{art.creator.user.name}" %></figcaption>
-		</figure>
-		<h3><%= "Price: $#{art.price}" %></h3>
-		<h3><%= "Number for sale: #{art.quantity}" %></h3>
-	  </div>
-<%end%>
+<div>
+	<h1>All Art Works in the Art Market</h1>
+	<div class="row">
+	<% Artwork.all.each do |art|%>
+		  <div class="col-sm-3 col-centered">
+			<a href="/artworks/<%= "#{art.id}" %>"><h1><%=art.name%></h1></a>
+			<figure>
+				<img src="<%= "images/#{art.img}" %>" alt="<%= art.name%>" width="300" height="300">
+				<figcaption><%= "Posted by: #{art.creator.user.name}" %></figcaption>
+			</figure>
+			<h3><%= "Price: $#{art.price}" %></h3>
+			<h3><%= "Number for sale: #{art.quantity}" %></h3>
+		  </div>
+	<%end%>
+	</div>
 </div>
