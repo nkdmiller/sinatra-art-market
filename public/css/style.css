@@ -1,0 +1,8 @@
+.wrapper {
+  margin: 0 auto;
+  background-color: silver;
+}
+p {
+	font-size: 175%;
+	word-wrap: break-word;
+}

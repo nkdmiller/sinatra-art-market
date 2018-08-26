@@ -1,3 +1,4 @@
+<div class="wrapper">
 <%if @success == true%>
 	<div class="alert alert-success">
 	  <strong>Transaction complete! See receipt below.</strong>
@@ -15,13 +16,13 @@
 <%end%>
 <div class="row">
 	<div class="col-sm-4">
-	  	<%="Name: #{@user.name}"%>
+	  	<h1><%="Name: #{@user.name}"%></h1>
 	  	<br>
-	  	<%="Email: #{@user.email}"%>
+	  	<h3><%="Email: #{@user.email}"%></h3>
 	 </div>
 	 <br><br>
 	<div class="col-sm-4">
-	  	<%="Biography: #{@user.bio}"%>
+	  	<p><%="Biography: #{@user.bio}"%></p>
 	 </div>	 
 	 <br><br>
 	 <%if !!Helpers.is_logged_in?(session)%>
@@ -32,6 +33,7 @@
 		 <%end%>
 		</div>	 
 	 </div>
+</div>
 	 <%if !!@creator%>
 	 	<%if !!@creator.artworks%>
 	 		<h1><%="Artworks by #{@user.name}"%></h1>
@@ -108,5 +110,4 @@
 				<%end%>							
 		<%end%>
 	<%end%>
-
 </div>
