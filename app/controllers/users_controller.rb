@@ -4,14 +4,12 @@ class UsersController < ApplicationController
 	get '/users/signup' do
 		erb :'users/signup', :layout => false
 	end
+	#for development purposes
 	get '/users' do
-		@create = false
-		@success = false
 		erb :'users/show'
 	end
 	post "/users" do
 		@create = true
-		@success = false
 	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
 	  session[:user_id] = @user.id
 	  redirect to '/artworks'
@@ -20,6 +18,7 @@ class UsersController < ApplicationController
 		session.clear
 		redirect to '/artworks'
 	end
+	#navbar and other layout not needed for login/signup forms
 	get '/users/login' do
 		erb :'users/login', :layout => false
 	end

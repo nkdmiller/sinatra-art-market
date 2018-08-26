@@ -28,8 +28,8 @@
 	 <%if !!Helpers.is_logged_in?(session)%>
 	 	<div class="col-sm-4">
 		 <%if Helpers.current_user(session).id == @user.id%>
-		 	<a href=<%="/users/#{@user.id}/edit_profile"%>>Edit Profile</a>
-		 	<a href=<%="/users/#{@user.id}/change_password"%>>Change Password</a>
+		 	<a href=<%="/users/#{@user.id}/edit_profile"%>><button class="button-green">Edit Profile</button></a>
+		 	<a href=<%="/users/#{@user.id}/change_password"%>><button class="button-green">Change Password</button></a>
 		 <%end%>
 		</div>	 
 	 </div>
@@ -78,7 +78,7 @@
 					<br>
 					<form method="post" action="/transactions/<%= sale.id %>/delete">
 					  <input id="hidden" type="hidden" name="_method" value="delete">
-					  <input type="submit" value="Delete">
+					  <button class="button-green">Delete</button>
 					</form>
 					</div>
 				<%end%>	

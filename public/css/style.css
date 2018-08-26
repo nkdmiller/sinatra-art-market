@@ -20,6 +20,25 @@
 .centered{
 	text-align: center;
 }
+.button-green{
+	background-color: silver; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+.button-green:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+.button-red {
+    background-color: silver; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+.button-red:hover {
+    background-color: #f44336;
+    color: white;
+}
+
 p {
 	font-size: 1.75em;
 	word-wrap: break-word;

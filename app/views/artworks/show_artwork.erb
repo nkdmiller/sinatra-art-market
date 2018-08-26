@@ -7,7 +7,7 @@
 	  	<br>
 	  	<h2 class="centered">Number for sale: <%="#{@artwork.quantity}"%></h2>
 	  	<br>
-	  	<h2 class="centered"><a href=<%="/users/#{@artwork.creator.user_id}"%>>See Artist Profile</a></h2>
+	  	<h2 class="centered"><a href=<%="/users/#{@artwork.creator.user_id}"%>><button class="button-green">See Artist Profile</button></a></h2>
 	 </div>
 	 <div class="col-sm-4">
 	 <figure>
@@ -22,15 +22,24 @@
 	 <div class="col-sm-2 seller-options">
 	 <%if !!Helpers.is_logged_in?(session)%>
 		 <%if Helpers.current_user(session).id == @artwork.creator.user_id%>
-		 	<a href=<%="/artworks/#{@artwork.id}/edit"%>>Edit Artwork Page</a>
+		 	<a href=<%="/artworks/#{@artwork.id}/edit"%>><button class="button-green">Edit Artwork Page</button></a>
 		 	<div>
 		 	<form method="post" action="/artworks/<%= @artwork.id %>/delete">
 			  <input id="hidden" type="hidden" name="_method" value="delete">
-			  <input type="submit" value="Delete">
+			  <button class="button-red">Delete</button>
 			</form>
 			</div>
 		<%else%>
-			<a href=<%="/transactions/#{Helpers.current_user(session).id}/#{@artwork.id}/new"%>>Purchase Artwork</a>
+			<%if @artwork.quantity == 1%>
+				<%plural = ""%>
+			<%else%>
+				<%plural = "s"%>
+			<%end%>
+			<%if @artwork.quantity != 0%>
+				<h2 class="centered"><a href=<%="/transactions/#{Helpers.current_user(session).id}/#{@artwork.id}/new"%>><button class="button-green">Purchase Artwork<%=plural%></button></h2>
+			<%else%>
+				<h2 class="centered">Out of Stock</h2>
+			<%end%>
 		 <%end%>
 	<%end%>		
 	</div>
