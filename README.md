@@ -2,11 +2,11 @@
 
 ## Overview
 
-This web app simulates an art exchange and e-commerce sites. To access users must create a proifle by supplying basic information and a password. Upon logging in a user can post, buy other user's artwork or modify their own posts. Only the creator of a post can modify or delete it. Upon buying artwork in a post a reciept of the transaction will become visible in the user's profile. They can modify or delete that transaction as long as they are logged in. Transactions are only visible to the buyer and seller.  
+This web app simulates an e-commerce site focused on artwork. To access most information, users must create a proifle by some supplying basic information and a password. Upon logging in a user can post, buy other user's artwork or modify their own posts. Only the creator of a post can modify or delete it. After buying another user's artwork a reciept of the transaction will become visible in the user's profile. They can modify or delete that transaction as long as they are logged in. Transactions are only visible to the buyer and seller.  
 
 ## Instructions
 
-To run please download the zip file and extract to a directory you can access. Then in your terminal cd to "sinatra-art-market". Run "bundle" and then "rackup". In the terminal output you will see a port number. Then open up your browser and type in localhost:(port number).
+To run, please download the zip file and extract to a directory you can access. Then in your terminal cd to "sinatra-art-market". Run "bundle" and then "rackup". In the terminal output you will see a port number. Then open up your browser and type in localhost:(port number).
 
 ## Contributing
 
