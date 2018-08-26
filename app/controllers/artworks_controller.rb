@@ -12,7 +12,7 @@ class ArtworksController < ApplicationController
 	  @creator.save
 	  @artwork = Artwork.create(:name => params[:artwork][:name], :img => params[:artwork][:img], :quantity => params[:artwork][:quantity], :price => params[:artwork][:price], :description => params[:artwork][:description], :creator_id => @creator.id)
 	  @artwork.save
-	  redirect to '/artworks'
+	  erb:'artworks/show'
 	end
 	get '/artworks/:id' do
 		@artwork = Artwork.find(params[:id])
