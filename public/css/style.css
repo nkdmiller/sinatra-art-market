@@ -1,15 +1,21 @@
 .wrapper {
   margin: 0 auto;
-  background-color: silver;
+  background-image: url("/images/light-wood.jpg");
   padding: 25px;
   width: 90%;
+  border-style: groove;
+  border: 5px;
 }
 .art-box{
 	padding: 10px;
+	border: 5px;
 	background-color: silver;
+	border-style: groove;
 }
 .artmarket{
 	background-color: silver;
+	padding-left: 50px;
+	font-size: 1.5em;
 }
 .centered{
 	text-align: center;
@@ -23,5 +29,5 @@ img {
     height: auto;
 }
 body {
-	 background-image: url("/images/light-wood.jpg");
+	 background-image: url("/images/white-wood.jpg");
 }
