@@ -1,15 +1,15 @@
-<div class="row">
+<div class="row wrapper">
 	<div class="col-sm-4">
-	  	<h1><%="Name: #{@artwork.name}"%></h1>
+	  	<h1 class="centered"><%="Name: #{@artwork.name}"%></h1>
 	  	<br>
-	  	<h2>Price: <%="$#{@artwork.price}"%></h2>
+	  	<h2 class="centered">Price: <%="$#{@artwork.price}"%></h2>
 	  	<br>
 	  	<br>
-	  	<h2>Number for sale: <%="#{@artwork.quantity}"%></h2>
+	  	<h2 class="centered">Number for sale: <%="#{@artwork.quantity}"%></h2>
 	  	<br>
-	  	<a href=<%="/users/#{@artwork.creator.user_id}"%>>See Artist Profile</a>
+	  	<h2 class="centered"><a href=<%="/users/#{@artwork.creator.user_id}"%>>See Artist Profile</a></h2>
 	 </div>
-	 <div class="col-sm-8">
+	 <div class="col-sm-4">
 	 <figure>
 	 <img src="<%= "/images/#{@artwork.img}" %>" alt="<%= @artwork.name%>">
 	 <figcaption>

@@ -1,8 +1,24 @@
 .wrapper {
   margin: 0 auto;
   background-color: silver;
+  padding: 25px;
+  width: 90%;
 }
 p {
 	font-size: 175%;
 	word-wrap: break-word;
+}
+.art-box{
+	padding: 10px;
+	background-color: silver;
+}
+.centered{
+	text-align: center;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+body {
+	 background-image: url("/images/light-wood.jpg");
 }
