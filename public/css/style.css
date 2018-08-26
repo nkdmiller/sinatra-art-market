@@ -4,16 +4,19 @@
   padding: 25px;
   width: 90%;
 }
-p {
-	font-size: 175%;
-	word-wrap: break-word;
-}
 .art-box{
 	padding: 10px;
 	background-color: silver;
 }
+.artmarket{
+	background-color: silver;
+}
 .centered{
 	text-align: center;
+}
+p {
+	font-size: 175%;
+	word-wrap: break-word;
 }
 img {
     width: 100%;

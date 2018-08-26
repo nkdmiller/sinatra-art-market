@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
   <head>
-  <nav class="navbar">
+  <nav class="navbar artmarket">
     <span class="navbar-artmarket">
 
       <%if Helpers.is_logged_in?(session)%>
@@ -17,7 +17,7 @@
         <br>
         <a href="/users/logout">Logout</a>
       <%else%>
-        <a href="/users/login">Login</a>
+        <h3><a href="/users/login">Login</a></h3>
       <%end%>
       </span>
   </nav>
