@@ -1,57 +1,62 @@
-<h1>Create Artwork</h1>
-<br></br>
-
-
-
-<h2>Please fill out the following information</h2>
-<form action="/artworks" method="POST">
-	<br><br>
-	 <fieldset>
-	    <legend>Enter Artwork Name</legend>
-
-	    <input type="text" placeholder="Name" name="artwork[name]"
-	           maxlength="30" required
-	           title="Must be no longer than 30 characters." />
-
-	</fieldset>
-  <br></br> 
-	 <fieldset>
-	    <legend>Enter Photo Location</legend>
-
-	    <input type="text" placeholder="../public/images/photo.jpeg" name="artwork[img]"
-	           title="Path to image." />
-
-	</fieldset>
- 
-  <br></br>
- 
-	<fieldset>
-	    <legend>Enter Quantity</legend>
-
-	    <label for="primary">Quantity:</label>
-	    <input type="text" placeholder="Number for sale"
-	           required name = "artwork[quantity]"
-	           title="Enter quantity of this artwork for sale." />
-
-	</fieldset>
-
-    <br></br>
-
-    <fieldset>
-	    <legend>Enter Price</legend>
-
-	    <label for="primary">Price:</label>
-	    <input type="text" placeholder=".50, 10.00, 1,000.00"
-	           required name = "artwork[price]"
-	           title="Enter price of this artwork." />
-
-	</fieldset>
+<link rel="stylesheet" href="/css/form-style.css">
+<div class="form-wrapper">
+	<h1 class="centered">Create Artwork</h1>
 	<br></br>
-	<div>
-		<label for="primary">Description:</label>
-	</div>
-	<textarea name="artwork[description]" rows="10" cols="30"></textarea>
+
+
+
+	<h2 class="centered">Please fill out the following information</h2>
+	<form class = "form-background" action="/artworks" method="POST">
+		<br><br>
+		 <fieldset>
+		    <legend>Enter Artwork Name</legend>
+
+		    <input type="text" placeholder="Name" name="artwork[name]"
+		           maxlength="30" required
+		           title="Must be no longer than 30 characters." />
+
+		</fieldset>
+	  <br></br> 
+		 <fieldset>
+		    <legend>Enter Photo Location</legend>
+
+		    <input type="text" placeholder="../public/images/photo.jpeg" name="artwork[img]"
+		           title="Path to image." />
+
+		</fieldset>
+	 
+	  <br></br>
+	 
+		<fieldset>
+		    <legend>Enter Quantity</legend>
+
+		    <label for="primary">Quantity:</label>
+		    <input type="text" placeholder="Number for sale"
+		           required name = "artwork[quantity]"
+		           title="Enter quantity of this artwork for sale." />
+
+		</fieldset>
+
+	    <br></br>
+
+	    <fieldset>
+		    <legend>Enter Price</legend>
+
+		    <label for="primary">Price:</label>
+		    <input type="text" placeholder=".50, 10.00, 1,000.00"
+		           required name = "artwork[price]"
+		           title="Enter price of this artwork." />
+
+		</fieldset>
+		<br></br>
+		   <fieldset>
+		    <legend>Description</legend>
+
+		    <textarea name="artwork[description]" rows="10" cols="30"></textarea>
+
+		</fieldset>
 		
-    <br></br>
-  <input type="submit" value="Submit">
-</form>
+	    <br></br>
+	  <input class="centered" type="submit" value="Submit">
+	</form>
+</div>
