@@ -1,28 +1,31 @@
-<h1>Purchase Form</h1>
-<br></br>
-<h2>Please fill out the following information</h2>
-<form action="/transactions/<%=@user.id%>/<%= @artwork.id%>" method="POST">
-	<br><br>
-	 <fieldset>
-	    <legend>Select the number you wish to buy</legend>
+<link rel="stylesheet" href="/css/style.css">
+<div class="wrapper">
+	<h1>Purchase Form</h1>
+	<br></br>
+	<h2>Please fill out the following information</h2>
+	<form class = "form-background" action="/transactions/<%=@user.id%>/<%= @artwork.id%>" method="POST">
+		<br><br>
+		 <fieldset>
+		    <legend>Select the number you wish to buy</legend>
 
-	    <select name="transaction[quantity_sold]">
-	    	<%i=1%>
-	    	<%@artwork.quantity.times do%>
-	    		<option value="<%=i%>"><%=i%></option>
-	    		<%i+=1%>
-	    	<%end%>
+		    <select name="transaction[quantity_sold]">
+		    	<%i=1%>
+		    	<%@artwork.quantity.times do%>
+		    		<option value="<%=i%>"><%=i%></option>
+		    		<%i+=1%>
+		    	<%end%>
 
-	    </select>
+		    </select>
 
-	</fieldset>
-  <br></br> 
-	 <fieldset>
-	    <legend>Note to Seller</legend>
+		</fieldset>
+	  <br></br> 
+		 <fieldset>
+		    <legend>Note to Seller</legend>
 
-	    <textarea name="transaction[note]" rows="10" cols="30"></textarea>
+		    <textarea name="transaction[note]" rows="10" cols="30"></textarea>
 
-	</fieldset>
+		</fieldset>
 
-  <input type="submit" value="Submit">
-</form>
+	  <input type="submit" value="Submit">
+	</form>
+</div>

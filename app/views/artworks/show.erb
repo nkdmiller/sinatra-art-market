@@ -9,8 +9,8 @@
 	</div>
 <%end%>
 <div>
-	<h1 class="centered">Welcome to the Sinatra Art Market</h1>
-	<div class="row wrapper row-eq-height">
+	<h1 class="centered titled">Welcome to the Sinatra Art Market</h1>
+	<div class="row wrapper">
 	<% Artwork.all.each do |art|%>
 		  <div class="col-sm-3 art-box">
 			<a href="/artworks/<%= "#{art.id}" %>"><h1><%=art.name%></h1></a>
