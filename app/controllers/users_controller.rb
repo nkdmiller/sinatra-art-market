@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 	end
 	post "/users" do
 		@create = true
-	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email])
+	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email], :bio => params[:user][:bio])
 	  session[:user_id] = @user.id
 	  redirect to '/artworks'
 	end
