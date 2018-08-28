@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="/css/style.css">
+
 <div class = "wrapper">
+	<%if @fail == true%>
+		<div class="alert alert-warning" role="alert">
+			<strong>Username has already been taken.</strong>
+		</div>
+	<%end%>
 	<h1 class = "centered">Sign Up</h1>
 	<br></br>
 	<h2 class = "centered">Please fill out the following information</h2>

@@ -8,11 +8,17 @@ class UsersController < ApplicationController
 	get '/users' do
 		erb :'users/show'
 	end
+	#############
 	post "/users" do
-		@create = true
-	  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email], :bio => params[:user][:bio])
-	  session[:user_id] = @user.id
-	  redirect to '/artworks'
+		if User.find_by(name: params[:user][:name])
+		  @fail = true
+		  erb :'users/signup', :layout => false
+		else
+		  @create = true
+		  @user = User.create(:name => params[:user][:name], :password => params[:user][:password], :email => params[:user][:email], :bio => params[:user][:bio])
+		  session[:user_id] = @user.id
+		  redirect to '/artworks'
+		end
 	end
 	get '/users/logout' do
 		session.clear
