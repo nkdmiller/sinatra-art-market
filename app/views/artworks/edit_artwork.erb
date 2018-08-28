@@ -1,55 +1,57 @@
-<h1>Edit Artwork</h1>
-<br></br>
-<h2>Please fill out the following information</h2>
-<form action="/artworks/<%="#{@artwork.id}"%>" method="POST">
-	<input id="hidden" type="hidden" name="_method" value="patch"> 
-	<br><br>
-	 <fieldset>
-	    <legend>Enter Artwork Name</legend>
-
-	    <input type="text" placeholder="Name" name="artwork[name]"
-	           maxlength="30"
-	           title="Must be no longer than 30 characters." />
-
-	</fieldset>
-  <br></br> 
-	 <fieldset>
-	    <legend>Enter Photo Location</legend>
-
-	    <input type="text" placeholder="../public/images/photo.jpeg" name="artwork[img]"
-	           title="Path to image." />
-
-	</fieldset>
- 
-  <br></br>
- 
-	<fieldset>
-	    <legend>Enter Quantity</legend>
-
-	    <label for="primary">Quantity:</label>
-	    <input type="text" placeholder="Number for sale"
-	            name = "artwork[quantity]"
-	           title="Enter quantity of this artwork for sale." />
-
-	</fieldset>
-
-    <br></br>
-
-    <fieldset>
-	    <legend>Enter Price</legend>
-
-	    <label for="primary">Price:</label>
-	    <input type="text" placeholder=".50, 10.00, 1,000.00"
-	           name = "artwork[price]"
-	           title="Enter price of this artwork." />
-
-	</fieldset>
+<div class = "wrapper">
+	<h1>Edit Artwork</h1>
 	<br></br>
-	<div>
-		<label for="primary">Description:</label>
-	</div>
-	<textarea name="artwork[description]" rows="10" cols="30"></textarea>
-		
-    <br></br>
-  <input type="submit" value="Update Artwork">
-</form>
+	<h2>Please fill out the following information</h2>
+	<form action="/artworks/<%="#{@artwork.id}"%>" class="form-background" method="POST">
+		<input id="hidden" type="hidden" name="_method" value="patch"> 
+		<br><br>
+		 <fieldset>
+		    <legend>Enter Artwork Name</legend>
+
+		    <input type="text" placeholder="Name" name="artwork[name]"
+		           maxlength="30"
+		           title="Must be no longer than 30 characters." />
+
+		</fieldset>
+	  <br></br> 
+		 <fieldset>
+		    <legend>Enter Photo Location</legend>
+
+		    <input type="text" placeholder="art_photo.jpg" name="artwork[img]"
+		           title="Path to image." />
+
+		</fieldset>
+	 
+	  <br></br>
+	 
+		<fieldset>
+		    <legend>Enter Quantity</legend>
+
+		    <label for="primary">Quantity:</label>
+		    <input type="text" placeholder="Number for sale"
+		            name = "artwork[quantity]"
+		           title="Enter quantity of this artwork for sale." />
+
+		</fieldset>
+
+	    <br></br>
+
+	    <fieldset>
+		    <legend>Enter Price</legend>
+
+		    <label for="primary">Price:</label>
+		    <input type="text" placeholder=".50, 10.00, 1,000.00"
+		           name = "artwork[price]"
+		           title="Enter price of this artwork." />
+
+		</fieldset>
+		<br></br>
+		<div>
+			<label for="primary">Description:</label>
+		</div>
+		<textarea name="artwork[description]" rows="10" cols="30"></textarea>
+			
+	    <br></br>
+	  <input type="submit" value="Update Artwork">
+	</form>
+</div>

@@ -15,6 +15,15 @@ body {
 	 background-image: url("/images/white-wood.jpg");
 	 font-family: 'Playfair Display', serif;
 }
+input[type=submit]{
+	background-color: silver; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+input[type=submit]:hover{
+    background-color: #4CAF50;
+    color: white;
+ }
 .wrapper {
   margin: 0 auto;
   background-image: url("/images/light-wood.jpg");

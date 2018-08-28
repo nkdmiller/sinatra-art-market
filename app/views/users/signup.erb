@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="/css/style.css">
 <div class = "wrapper">
-	<h1>Sign Up</h1>
+	<h1 class = "centered">Sign Up</h1>
 	<br></br>
-	<h2>Please fill out the following information</h2>
+	<h2 class = "centered">Please fill out the following information</h2>
 	<form class = "form-background" action="/users" method="POST">
 		<br><br>
 		 <fieldset>
@@ -42,11 +42,10 @@
 
 		</fieldset>
 		<br></br>
-		<div>
-			<label for="primary">Description:</label>
-		</div>
-		<textarea name="user[bio]" rows="10" cols="30"></textarea>
-			
+		<fieldset>
+		    <legend>Description</legend>
+			<textarea name="user[bio]" rows="10" cols="30"></textarea>
+		</fieldset>
 	    <br></br>
 	    
 	  <input type="submit" value="Submit">
