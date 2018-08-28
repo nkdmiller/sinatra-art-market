@@ -42,8 +42,20 @@
 		    <label for="primary">Price:</label>
 		    <input type="text" placeholder=".50, 10.00, 1,000.00"
 		           name = "artwork[price]"
-		           title="Enter price of this artwork." />
-
+		           title="Enter price of this artwork." required oninput="check(this)"/>
+	        <script language='javascript' type='text/javascript'>
+				function check(input)
+				{
+				  var val = input.value;
+				  if (isNaN(val)) 
+				  {
+					input.setCustomValidity('Must be a valid number.');
+				  }
+				  else{
+			            input.setCustomValidity('');
+			        }
+				}
+			</script>
 		</fieldset>
 		<br></br>
 		<div>
