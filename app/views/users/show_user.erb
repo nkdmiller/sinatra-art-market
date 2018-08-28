@@ -1,3 +1,4 @@
+
 <div class="wrapper">
 <%if @success == true%>
 	<div class="alert alert-success">
@@ -33,8 +34,8 @@
 		 <%end%>
 		</div>	 
 	 </div>
-</div>
 
+	 <!-- Display any and all artworks -->
 	 <%if !!@creator%>
 	 	<%if !!@creator.artworks%>
 	 		<h1 class= "centered"><%="Artworks by #{@user.name}"%></h1>
@@ -53,6 +54,10 @@
 		<%end%>
 	</div>
 	<%end%>
+
+	<!-- Must be owner of profile to see transactions -->
+	<%if !!Helpers.is_logged_in?(session)%>
+	<%if Helpers.current_user(session).id == @user.id%>
 	 <br><br>
 		 <%if !!@buyer%>
 		 	<%if !@buyer.transactions.empty?%>
@@ -60,7 +65,7 @@
 		 		<div class="row wrapper">
 		 	<%end%>
 				 <%@user.buyer.transactions.all.each do |sale|%>
-				 	<div class="col-sm-3 art-box">
+				 	<div class="col-sm-3 transaction-box">
 				 	<%@artwork = Artwork.find(sale.artwork_id)%>
 				 	<h1><%=@artwork.name%></h1>
 				 	<figure>
@@ -81,20 +86,22 @@
 					  <button class="button-red">Delete</button>
 					</form>
 					</div>
-				<%end%>	
+				</div>
+			<%end%>	
 		<%end%>
-</div>
+
 		<%mysales = []%>
 		<%Transaction.all.each do |sale|%>
 			<%if sale.artwork.creator.user.id == Helpers.current_user(session).id%>
 				<%mysales << sale%>
 			<%end%>
 		<%end%>
+
 		<%if !mysales.empty?%>
 				<div class="row wrapper">
 				<h1 class ="centered">Sales</h1>
 				 <%mysales.each do |sale|%>
-				 	<div class="col-sm-3 art-box">
+				 	<div class="col-sm-3 transaction-box">
 				 	<%@artwork = Artwork.find(sale.artwork_id)%>
 				 	<h1><%=@artwork.name%></h1>
 				 	<figure>
@@ -106,10 +113,13 @@
 					<br><br>
 					<h3>Quantity: <%=sale.quantity_sold%></h3>
 					<%total = @artwork.price.to_f * sale.quantity_sold.to_f%>
+
 					<h3>Total Price: $<%=total%></h3>
 					</div>
-				<%end%>							
-			<%end%>
-			</div>
+				<%end%>	
+				</div>						
 		<%end%>
-	
+		<%end%>
+	<%end%>
+	<%end%>
+</div>

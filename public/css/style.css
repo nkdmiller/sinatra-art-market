@@ -29,11 +29,18 @@ body {
 	background-color: silver;
 	border-style: groove;
 }
+.transaction-box{
+	padding: 10px;
+	border: 5px;
+	background-color: silver;
+	border-style: groove;
+}
 .art-box{
 	padding: 10px;
 	border: 5px;
 	background-color: silver;
 	border-style: groove;
+	height: 750px;
 }
 .artmarket{
 	background-color: silver;

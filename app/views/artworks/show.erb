@@ -15,7 +15,7 @@
 		  <div class="col-sm-3 art-box">
 			<a href="/artworks/<%= "#{art.id}" %>"><h1><%=art.name%></h1></a>
 			<figure>
-				<img src="<%= "/images/#{art.img}" %>" alt="<%= art.name%>" width="300" height="300">
+				<img src="<%= "/images/#{art.img}" %>" alt="<%= art.name%>" style="max-height:500px;max-width:500px;">
 				<figcaption><%= "Posted by: #{art.creator.user.name}" %></figcaption>
 			</figure>
 			<h3><%= "Price: $#{art.price}" %></h3>
