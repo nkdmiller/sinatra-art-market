@@ -4,7 +4,7 @@ class ArtworksController < ApplicationController
 		erb:'artworks/show'
 	end
 	get '/artworks/new' do
-		erb:'artworks/new', :layout => false
+		erb:'artworks/new'
 	end
 	#@create is checked when artworks/show is rendered to flash validation message
 	post "/artworks" do
@@ -25,7 +25,7 @@ class ArtworksController < ApplicationController
 
 	get '/artworks/:id/edit' do
 		@artwork = Artwork.find(params[:id])
-		erb:'artworks/edit_artwork', :layout => false
+		erb:'artworks/edit_artwork'
 	end	
 	#Rack:MethodOverride allows for patch and delete requests
 	use Rack::MethodOverride
