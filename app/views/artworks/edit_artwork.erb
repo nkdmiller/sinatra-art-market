@@ -30,7 +30,7 @@
 		    <label for="primary">Quantity:</label>
 		    <input type="text" placeholder="Number for sale"
 		            name = "artwork[quantity]"
-		           title="Enter quantity of this artwork for sale." />
+		           title="Enter quantity of this artwork for sale." oninput="check(this)"/>
 
 		</fieldset>
 
@@ -42,7 +42,7 @@
 		    <label for="primary">Price:</label>
 		    <input type="text" placeholder=".50, 10.00, 1,000.00"
 		           name = "artwork[price]"
-		           title="Enter price of this artwork." required oninput="check(this)"/>
+		           title="Enter price of this artwork." oninput="check(this)"/>
 	        <script language='javascript' type='text/javascript'>
 				function check(input)
 				{
