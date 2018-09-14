@@ -70,11 +70,27 @@ class UsersController < ApplicationController
 	  end
 	get '/users/:id/edit_profile' do
 		@user = User.find(params[:id])
-		erb :'users/edit_profile'
+		if Helpers.is_logged_in?(session)
+			if Helpers.current_user(session) == @user.id
+				erb :'users/edit_profile'
+			else
+				redirect to "/artworks"
+			end
+		else
+			redirect to "/artworks"
+		end
 	end
 	get '/users/:id/change_password' do
 		@user = User.find(params[:id])
-		erb :'users/change_password'
+		if Helpers.is_logged_in?(session)
+			if Helpers.current_user(session) == @user.id
+				erb :'users/change_password'
+			else
+				redirect to "/artworks"
+			end
+		else
+			redirect to "/artworks"
+		end
 	end
 	get '/users/:id/transaction-redirect' do
 		@transaction_success = true

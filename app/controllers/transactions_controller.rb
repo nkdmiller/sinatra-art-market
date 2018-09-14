@@ -5,6 +5,8 @@ class TransactionsController < ApplicationController
 		@user = User.find(params[:user_id])
 		erb :'transactions/new'
 	end
+	#@success renders flash message
+	#artwork quantity is reduced when an item is purchased
 	post '/transactions/:user_id/:artwork_id' do
 		@user = User.find(params[:user_id])
 		@artwork = Artwork.find(params[:artwork_id])
@@ -23,6 +25,7 @@ class TransactionsController < ApplicationController
 		@artwork = Artwork.find(@transaction.artwork_id)
 		erb :'transactions/edit'
 	end
+	#artwork quantity is added back to it's original and then reduced by the new quantity sold amount
 	patch '/transactions/:id' do  
 		@transaction = Transaction.find(params[:id])
 		@artwork = Artwork.find(@transaction.artwork.id)

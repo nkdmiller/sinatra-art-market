@@ -24,8 +24,17 @@ class ArtworksController < ApplicationController
 	end
 
 	get '/artworks/:id/edit' do
-		@artwork = Artwork.find(params[:id])
-		erb:'artworks/edit_artwork'
+		@user = Artwork.find(params[:id]).creator.user
+		if Helpers.is_logged_in?(session)
+			if Helpers.current_user(session) == @user.id
+				@artwork = Artwork.find(params[:id])
+				erb:'artworks/edit_artwork'
+			else
+				redirect_to "artworks/#{params[:id]}"
+			end
+		else
+			redirect_to "artworks/#{params[:id]}"
+		end
 	end	
 	#Rack:MethodOverride allows for patch and delete requests
 	use Rack::MethodOverride
@@ -49,13 +58,31 @@ class ArtworksController < ApplicationController
 	    redirect to "/artworks/#{@artwork.id}"
 	  end
 	delete '/artworks/:id/delete' do
-	    @artwork = Artwork.find(params[:id])
-	    @artwork.delete
-	    @deleted = true
-	    erb:"artworks/show"
+		@user = Artwork.find(params[:id]).creator.user
+		if Helpers.is_logged_in?(session)
+			if Helpers.current_user(session) == @user.id
+	    		@artwork = Artwork.find(params[:id])
+	    		@artwork.delete
+	    		@deleted = true
+	    		erb:"artworks/show"
+			else
+				redirect_to "artworks/#{params[:id]}"
+			end
+		else
+			redirect_to "artworks/#{params[:id]}"
+		end
  	end
  	get '/artworks/:id/buy' do
- 		@artwork = Artwork.find(params[:id])
- 		erb:'transactions/new'
+ 		@user = Artwork.find(params[:id]).creator.user
+		if Helpers.is_logged_in?(session)
+			if Helpers.current_user(session) != @user.id
+		 		@artwork = Artwork.find(params[:id])
+		 		erb:'transactions/new'
+			else
+				redirect_to "artworks/#{params[:id]}"
+			end
+		else
+			redirect_to "artworks/#{params[:id]}"
+		end
  	end
 end
