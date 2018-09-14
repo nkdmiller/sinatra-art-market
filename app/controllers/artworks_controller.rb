@@ -60,29 +60,29 @@ class ArtworksController < ApplicationController
 	delete '/artworks/:id/delete' do
 		@user = Artwork.find(params[:id]).creator.user
 		if Helpers.is_logged_in?(session)
-			if Helpers.current_user(session) == @user.id
+			if Helpers.current_user(session).id == @user.id
 	    		@artwork = Artwork.find(params[:id])
 	    		@artwork.delete
 	    		@deleted = true
 	    		erb:"artworks/show"
 			else
-				redirect_to "artworks/#{params[:id]}"
+				redirect to "artworks/#{params[:id]}"
 			end
 		else
-			redirect_to "artworks/#{params[:id]}"
+			redirect to "artworks/#{params[:id]}"
 		end
  	end
  	get '/artworks/:id/buy' do
  		@user = Artwork.find(params[:id]).creator.user
 		if Helpers.is_logged_in?(session)
-			if Helpers.current_user(session) != @user.id
+			if Helpers.current_user(session).id != @user.id
 		 		@artwork = Artwork.find(params[:id])
 		 		erb:'transactions/new'
 			else
-				redirect_to "artworks/#{params[:id]}"
+				redirect to "artworks/#{params[:id]}"
 			end
 		else
-			redirect_to "artworks/#{params[:id]}"
+			redirect to "artworks/#{params[:id]}"
 		end
  	end
 end

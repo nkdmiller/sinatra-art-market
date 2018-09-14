@@ -29,8 +29,8 @@ class UsersController < ApplicationController
 		erb :'users/login', :layout => false
 	end
 	post '/users/login' do
-	    @user = User.find_by(name: params[:user][:name], password: params[:user][:password])
-	    if @user
+	    @user = User.find_by(name: params[:user][:name])
+	    if @user && @user.authenticate(params[:user][:password])
 	      session[:user_id] = @user.id
 	      redirect to '/artworks'
 	    else
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 	get '/users/:id/edit_profile' do
 		@user = User.find(params[:id])
 		if Helpers.is_logged_in?(session)
-			if Helpers.current_user(session) == @user.id
+			if Helpers.current_user(session).id == @user.id
 				erb :'users/edit_profile'
 			else
 				redirect to "/artworks"
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 	get '/users/:id/change_password' do
 		@user = User.find(params[:id])
 		if Helpers.is_logged_in?(session)
-			if Helpers.current_user(session) == @user.id
+			if Helpers.current_user(session).id == @user.id
 				erb :'users/change_password'
 			else
 				redirect to "/artworks"

@@ -1,27 +1,27 @@
 users_list = {
     "Mark" => {
       :email => "mark@example.com",
-      :password => "password",
+      :password_digest => BCrypt::Password.create('password'),
       :bio => "My name is Mark, I'm an art seller."
     },
     "Rachael" => {
       :email => "rachael@example.com",
-      :password => "password",
+      :password_digest => BCrypt::Password.create('password'),
       :bio => "My name is Rachael, I'm a trader of rare paintings."
     },
     "Stefan" => {
       :email => "stefan@example.com",
-      :password => "password",
+      :password_digest => BCrypt::Password.create('password'),
       :bio => "My name is Stefan, I'm an art buyer."
     },
      "Pat" => {
       :email => "pat@example.com",
-      :password => "password",
+      :password_digest => BCrypt::Password.create('password'),
       :bio => "My name is Pat, I'm a silversmith."
     },
      "Alfred" => {
       :email => "alfred@example.com",
-      :password => "password",
+      :password_digest => BCrypt::Password.create('password'),
       :bio => "My name is Alfred, I work at the Met."
     }           
   }
