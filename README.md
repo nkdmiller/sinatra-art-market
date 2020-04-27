@@ -2,7 +2,7 @@
 
 ## Overview
 
-This web app simulates an e-commerce site focused on artwork. To access most information, users must create a proifle by supplying some basic information and a password. Upon logging in a user can post, buy other user's artwork or modify their own posts. Only the creator of a post can modify or delete it. After buying another user's artwork a reciept of the transaction will become visible in the user's profile. They can modify or delete that transaction as long as they are logged in. Transactions are only visible to the buyer and seller.  
+This web app simulates an e-commerce site focused on artwork. To access most information, users must create a profile by supplying some basic information and a password. Upon logging in a user can post, buy other user's artwork or modify their own posts. Only the creator of a post can modify or delete it. After buying another user's artwork a reciept of the transaction will become visible in the user's profile. They can modify or delete that transaction as long as they are logged in. Transactions are only visible to the buyer and seller.  
 
 ## Instructions
 
